@@ -1,19 +1,21 @@
 pipeline {
-  agent {
-    docker 'node:7.10-alpine'
-  }
-  stages {
-    stage('Build') {
-      steps {
-        echo 'Building..'
-        sh 'npm install'
-      }
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
     }
-    stage('Test') {
-      steps {
-        echo 'Testing..'
-        sh 'npm t'
-      }
-    }
-  }
 }
